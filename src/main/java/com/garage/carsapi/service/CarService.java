@@ -11,8 +11,11 @@ import java.util.Optional;
 @Data
 @Service
 public class CarService {
-    @Autowired
+
     private CarRepository carRepository;
+    public CarService(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
 
     public Optional<Car> getCar(final Long id){
         return carRepository.findById(id);

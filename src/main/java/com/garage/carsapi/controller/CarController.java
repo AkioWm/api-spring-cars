@@ -11,8 +11,12 @@ import java.util.Optional;
 @Data
 @RestController
 public class CarController {
-    @Autowired
     private CarService carService;
+
+    public CarController(CarService carService) {
+        this.carService = carService;
+    }
+
     @GetMapping("/cars")
     public Iterable<Car> getCars(){
         return carService.getCars();
